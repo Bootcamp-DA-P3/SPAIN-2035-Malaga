@@ -1,5 +1,3 @@
-![Portada SPAIN 2035](web/portada_SPAIN2035.png)
-
 # SPAIN 2035 · ¿Podré quedarme en Málaga?
 
 **Proyecto 7 de Regresión — Factoría F5 · Nivel 2 (nivel medio)**  
@@ -10,6 +8,19 @@
 SPAIN 2035 investiga una pregunta concreta: **¿cómo pueden evolucionar los alquileres de Málaga y qué implicaciones tienen para la posibilidad de vivir, ahorrar y construir un futuro en la ciudad?**
 
 El proyecto combina análisis exploratorio de datos (EDA), modelos supervisados de regresión, validación temporal y una aplicación web interactiva. Como contexto, también muestra la evolución económica y de la felicidad en España.
+
+
+## Simulador interactivo — Mediterráneo de Cristal
+
+![Vista del simulador SPAIN 2035](web/SPAIN2035_vista_simulador.png)
+
+El simulador permite explorar los alquileres por zonas
+de Málaga, consultar referencias de compra de viviendas
+de dos habitaciones y visualizar escenarios hasta 2035.
+
+Para utilizar la aplicación interactiva, ejecutar
+localmente: `python app_malaga.py`
+
 
 **Distinción fundamental:** el modelo de *machine learning* predice el **alquiler mediano mensual de una sección censal a un año**, expresado en euros. Las cifras de vivienda de 2026 a 2035 calculadas mediante tasas constantes son **escenarios**, no pronósticos de mercado validados. La felicidad futura procede de una **extrapolación lineal exploratoria**, no del modelo de alquiler.
 
