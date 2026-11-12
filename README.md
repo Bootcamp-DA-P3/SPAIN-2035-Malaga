@@ -1,3 +1,5 @@
+![Portada SPAIN 2035](web/portada_SPAIN2035.png)
+
 # SPAIN 2035 · ¿Podré quedarme en Málaga?
 
 **Proyecto 7 de Regresión — Factoría F5 · Nivel 2 (nivel medio)**  
