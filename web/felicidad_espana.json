@@ -1,0 +1,20 @@
+{
+  "fuente": "Proyecto 6 EDA — World Happiness Report; valor 2025 comunicado en el proyecto",
+  "observaciones": {
+    "2025": 6.54,
+    "2015": 6.361,
+    "2016": 6.403,
+    "2017": 6.31,
+    "2018": 6.354,
+    "2019": 6.401,
+    "2020": 6.491,
+    "2021": 6.476,
+    "2022": 6.436,
+    "2023": 6.421,
+    "2024": 6.466
+  },
+  "nota": "Añade los valores observados históricos 2011-2024, cuando se verifiquen. Las proyecciones se calculan por regresión lineal solo si existen al menos 4 años distintos. No se inventan los valores que faltan.",
+  "metodologia": "Resultados por edición del World Happiness Report. Son medias móviles de tres años; 2025 corresponde al período 2023-2025 del WHR 2026. Los valores anteriores proceden de la serie ya usada en atlas.js y deben contrastarse con el archivo original antes de una entrega académica.",
+  "fuente_2025": "https://worldhappiness.report/",
+  "proyeccion": "Regresión lineal exploratoria; no pronóstico validado."
+}

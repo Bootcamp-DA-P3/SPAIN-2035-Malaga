@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b8fcb">
+  <title>SPAIN 2035 · Málaga · Mediterráneo de Cristal</title>
+  <link rel="stylesheet" href="/leaflet.css">
+  <link rel="stylesheet" href="/estilo.css">
+</head>
+<body>
+<main>
+  <section class="portada" aria-label="Panorámica del puerto de Málaga">
+    <div class="portada__sombra"></div>
+    <div class="marca">
+      <div class="marca__icono" aria-hidden="true">⌂</div>
+      <div><h1>Atlas del alquiler</h1><p>Málaga · ESPAÑA 2035</p></div>
+    </div>
+    <aside class="felicidad" aria-live="polite" aria-label="Felicidad proyectada en España">
+      <div class="felicidad__cabecera"><span class="felicidad__cara" aria-hidden="true">☺</span><div><strong>Felicidad en España · <span id="felicidad-anio">2025</span></strong><small id="felicidad-tipo">Índice pendiente de conexión</small></div></div>
+      <div class="felicidad__valor"><span id="felicidad-valor">—</span><span class="felicidad__escala">/ 10</span></div>
+      <div class="felicidad__barra" role="meter" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" aria-label="Índice de felicidad aún no disponible"><span id="felicidad-barra"></span></div>
+      <div class="felicidad__extremos"><span>0</span><span>10</span></div>
+      <small id="felicidad-estado">Se calcula con datos históricos verificados.</small>
+    </aside>
+  </section>
+
+  <div class="onda" aria-hidden="true"></div>
+  <section class="espacio-trabajo">
+    <div class="controles">
+      <label class="control"><span>⌖ &nbsp; Código postal</span><select id="cp" aria-label="Código postal"></select></label>
+      <label class="control"><span>▣ &nbsp; Año de consulta</span><select id="anio" aria-label="Año de consulta"></select></label>
+    </div>
+
+    <div class="panel">
+      <div class="mapa-caja">
+        <div id="mapa" aria-label="Mapa interactivo: pulsa una zona para consultar su alquiler"></div>
+        <div class="leyenda"><span><i class="punto punto--postal"></i>Límite postal</span><span><i class="punto punto--seleccion"></i>Zona seleccionada</span><span><i class="punto punto--sin-dato"></i>Sin dato</span><button id="centrar" type="button">Centrar mapa</button></div>
+      </div>
+      <div class="indicadores">
+        <article class="tarjeta tarjeta--alquiler" aria-live="polite">
+          <small id="modo">Alquiler estimado</small>
+          <h2>Alquiler de zona en <span id="cp-alquiler">29012</span> · <span id="anio-alquiler">2025</span></h2>
+          <div class="tarjeta__etiqueta" id="metodo">Modelo de regresión</div>
+          <output id="estimado">Calculando…</output>
+          <p id="alquiler-2hab-referencia" style="background:rgba(255,255,255,.45);border-radius:14px;padding:10px;font-size:12px;line-height:1.5"></p>
+          <p class="tarjeta__zona" id="lugar"></p>
+          <p id="detalle"></p>
+          <small id="evaluacion"></small>
+          <div class="silueta" aria-hidden="true">▁▂▃▂▄▅▃▆▅▇▅▃▆</div>
+        </article>
+        <article class="tarjeta tarjeta--compra">
+          <small>MERCADO INMOBILIARIO</small>
+          <h2>Compra · piso de 2 habitaciones</h2>
+          <div class="tarjeta__etiqueta" id="compra-etiqueta">Datos pendientes</div>
+          <div class="precio-vacio" id="compra-valor">— €</div>
+          <p id="compra-estado">Pendiente de cargar datos verificados de compraventa para esta zona.</p>
+        </article>
+      </div>
+    </div>
+    <details><summary>Fuentes, metodología y límites de las proyecciones</summary>
+      <p>La cifra principal de alquiler es la mediana general por sección censal, sin filtrado por dormitorios. La referencia complementaria de 2 habitaciones supone 75 m² y utiliza el precio municipal de oferta por metro cuadrado de idealista. Ambos indicadores no son intercambiables. Los valores de alquiler por sección proceden del modelo existente del proyecto. El modelo Gradient Boosting se consulta para 2023–2025; los años 2026–2035 son escenarios calculados a partir del dato de 2024 con una variación anual fija del 2 %, no predicciones de un modelo entrenado para esos años.</p>
+      <p>La compra usa precios de oferta de Málaga capital en octubre de 2023 a 2026 y una vivienda tipo de 2 habitaciones y 75 m². Para 2027–2035 se aplica el crecimiento anual observado entre octubre de 2025 y 2026, solo como escenario, no como pronóstico validado. La felicidad utiliza las puntuaciones publicadas en los informes WHR para España (2015–2025) y regresión lineal exploratoria para 2026–2035. Son medias móviles trianuales, no mediciones anuales independientes. Son estimaciones con incertidumbre, no certezas. El mapa utiliza límites postales y secciones censales; elegir una zona en el mapa permite una consulta precisa sin mostrar su código técnico.</p>
+      <p>Fuentes actuales: SERPAVI, INE y <a href="https://datosabiertos.malaga.eu/dataset/sistema-de-informacion-cartografica-distrito-postal" target="_blank" rel="noopener noreferrer">datos abiertos del Ayuntamiento de Málaga</a>. Mapa base © OpenStreetMap. Venta y alquiler: <a href="https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/venta/andalucia/malaga-provincia/malaga/historico/" target="_blank" rel="noopener noreferrer">idealista venta</a> y <a href="https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/andalucia/malaga-provincia/malaga/historico/" target="_blank" rel="noopener noreferrer">idealista alquiler</a>. Felicidad: <a href="https://datosmacro.expansion.com/demografia/indice-felicidad/espana" target="_blank" rel="noopener noreferrer">series de informes WHR para España</a>.</p>
+    </details>
+    <footer>SPAIN 2035 · Proyecto 7 · Aprendizaje automático y regresión predictiva</footer>
+  </section>
+
+  <!-- Compatibilidad con el JavaScript existente y la API de observaciones. No visible. -->
+  <div hidden id="compatibilidad"><select id="zona" aria-label="Identificador interno de zona"></select><label id="supuesto" hidden>Variación anual<select id="tasa"><option value="2" selected>2 %</option></select></label><p id="monitor"></p><form id="registro" hidden><input type="number" min="0.01" step="0.01" id="observada"><input id="fuente" maxlength="300"><button type="submit">Guardar observación</button></form><p id="mensaje" role="status"></p></div>
+</main>
+<script src="/leaflet.js"></script>
+<script src="/atlas.js"></script>
+</body>
+</html>

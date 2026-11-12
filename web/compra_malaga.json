@@ -1,0 +1,41 @@
+{
+  "unidad": "EUR/m2",
+  "tipo_vivienda": "Piso tipo (referencia de dos habitaciones, no muestra filtrada)",
+  "habitaciones": 2,
+  "superficie_m2": 75,
+  "valores": {},
+  "referencia_municipal": {
+    "2025": {
+      "precio_m2": 3813,
+      "mes": "octubre",
+      "tipo": "Precio de oferta publicado"
+    },
+    "2026": {
+      "precio_m2": 3941,
+      "mes": "octubre",
+      "tipo": "Precio de oferta publicado"
+    }
+  },
+  "fuente": "Idealista - Informes de precios de vivienda en venta - Malaga capital",
+  "url_fuente": "https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/venta/andalucia/malaga-provincia/malaga/",
+  "nota": "Málaga capital: precio de oferta €/m² de octubre de cada año, no segmentado por código postal ni por dormitorios. Se multiplica por 75 m² para ilustrar una vivienda tipo de dos habitaciones. De 2027 a 2035 se aplica como escenario la variación interanual publicada en octubre de 2026: 3,4 % para venta y 5,4 % para alquiler. No se consideran gastos ni se trata de predicción ML.",
+  "habitaciones_referencia": 2,
+  "precio_compra": {
+    "2023": 2785,
+    "2024": 3320,
+    "2025": 3813,
+    "2026": 3941
+  },
+  "precio_alquiler": {
+    "2023": 13.4,
+    "2024": 15.8,
+    "2025": 15.9,
+    "2026": 16.7
+  },
+  "crecimiento_escenario": {
+    "compra_pct": 3.4,
+    "alquiler_pct": 5.4
+  },
+  "fuente_compra": "https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/venta/andalucia/malaga-provincia/malaga/historico/",
+  "fuente_alquiler": "https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/andalucia/malaga-provincia/malaga/historico/"
+}
