@@ -1,3 +1,10 @@
+## Simulador interactivo SPAIN 2035
+
+[▶ Abrir el simulador de Málaga](https://spain-2035-malaga.streamlit.app/)
+
+Consulta el alquiler por zona, la referencia de compra de vivienda
+y la felicidad de España para el año seleccionado.
+
 # SPAIN 2035 · ¿Podré quedarme en Málaga?
 
 **Proyecto 7 de Regresión — Factoría F5 · Nivel 2 (nivel medio)**  
