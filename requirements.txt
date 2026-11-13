@@ -1,5 +1,6 @@
 numpy
 pandas
 matplotlib
-scikit-learn
+scikit-learn==1.8.0
 ipykernel
+streamlit==1.67.0
