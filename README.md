@@ -1,162 +1,135 @@
-## Simulador interactivo SPAIN 2035
-
-[▶ Abrir el simulador de Málaga](https://spain-2035-malaga.streamlit.app/)
-
-Consulta el alquiler por zona, la referencia de compra de vivienda
-y la felicidad de España para el año seleccionado.
-
 # SPAIN 2035 · ¿Podré quedarme en Málaga?
 
-**Proyecto 7 de Regresión — Factoría F5 · Nivel 2 (nivel medio)**  
-**Aplicación:** *Mediterráneo de Cristal*
+**Proyecto 7 de Regresión · Factoría F5 · Aplicación multipágina**  
+**Diseño:** Mediterráneo de Cristal  
+**Autoría:** Mohamed
 
-## 1. Objetivo del proyecto
+## Acceso a la entrega
 
-SPAIN 2035 investiga una pregunta concreta: **¿cómo pueden evolucionar los alquileres de Málaga y qué implicaciones tienen para la posibilidad de vivir, ahorrar y construir un futuro en la ciudad?**
+- **[Abrir la aplicación completa](https://spain-2035-malaga.streamlit.app/)**
+- [Consultar el simulador original](https://spain-2035-malaga.streamlit.app/simulador)
+- [Leer la exposición del proyecto dentro de la app](https://spain-2035-malaga.streamlit.app/proyecto)
+- **[Memoria técnica de la ampliación](DOCUMENTACION_MULTIPAGINA.md)**
+- [Notebook de análisis y modelado](SPAIN_2035_Malaga.ipynb)
 
-El proyecto combina análisis exploratorio de datos (EDA), modelos supervisados de regresión, validación temporal y una aplicación web interactiva. Como contexto, también muestra la evolución económica y de la felicidad en España.
+## Qué aporta esta versión
 
+El proyecto se amplía desde un atlas de alquiler a una aplicación de ocho páginas
+que conecta vivienda, perfiles salariales, presupuesto, compra, economía,
+bienestar y evaluación de modelos. El objetivo es estudiar la asequibilidad de
+vivir en Málaga y explicar cómo se pasa de los datos a una herramienta interactiva.
 
-## Simulador interactivo — Mediterráneo de Cristal
+El código y la exposición distinguen datos observados, estimaciones del modelo y
+escenarios hasta 2035. No se interpreta un escenario de diez años como una
+predicción validada a ese horizonte.
 
-![Vista del simulador SPAIN 2035](web/SPAIN2035_vista_simulador.png)
-
-El simulador permite explorar los alquileres por zonas
-de Málaga, consultar referencias de compra de viviendas
-de dos habitaciones y visualizar escenarios hasta 2035.
-
-Para utilizar la aplicación interactiva, ejecutar
-localmente: `python app_malaga.py`
-
-
-**Distinción fundamental:** el modelo de *machine learning* predice el **alquiler mediano mensual de una sección censal a un año**, expresado en euros. Las cifras de vivienda de 2026 a 2035 calculadas mediante tasas constantes son **escenarios**, no pronósticos de mercado validados. La felicidad futura procede de una **extrapolación lineal exploratoria**, no del modelo de alquiler.
-
-## 2. Instalación y ejecución en VS Code
-
-1. Descomprime `SPAIN2035_Nivel2_ENTREGA.zip` y abre en VS Code la carpeta que contiene este README.
-2. **Conserva comprimido** `Atlas_Malaga_datos.zip`: el código lee sus CSV directamente.
-3. Selecciona un intérprete de Python compatible. Instala las dependencias en una terminal, si faltan:
-
-   ```powershell
-   python -m pip install -r requirements.txt
-   ```
-
-4. Abre `SPAIN_2035_Malaga.ipynb`, selecciona el mismo entorno de Python como *kernel* y ejecuta las celdas en orden para reproducir el EDA y la evaluación. Si se han conservado resultados anteriores, pueden verse sin ejecutar todo de nuevo.
-5. Inicia la aplicación desde otra terminal:
-
-   ```powershell
-   python app_malaga.py
-   ```
-
-6. Abre en Chrome la **dirección local exacta que imprima la terminal** (`http://127.0.0.1:PUERTO/`). Mantén esa terminal abierta. Para detener el servidor, pulsa **Ctrl+C** en ella.
-
-> **Nota:** el número de puerto puede cambiar en cada ejecución. El fondo cartográfico de OpenStreetMap requiere conexión a Internet; los archivos Leaflet están incluidos localmente.
-
-## 3. Estructura de la entrega
-
-| Recurso | Función |
+| Página | Trabajo que permite examinar |
 |---|---|
-| `SPAIN_2035_Malaga.ipynb` | EDA, gráficos, contexto económico, modelos, evaluación y conclusiones comentadas. |
-| `modelo.py` | Preparación de datos, Gradient Boosting y selección de hiperparámetros con validación temporal. |
-| `app_malaga.py` | Servidor local, API de predicción, seguimiento y exportación de observaciones. |
-| `Atlas_Malaga_datos.zip` | Datos de alquiler y documentación de sus fuentes. |
-| `web/index.html` | Estructura de la interfaz Mediterráneo de Cristal. |
-| `web/estilo.css` | Diseño y disposición responsive. |
-| `web/atlas.js` | Mapa interactivo, actualización de indicadores y cálculos de escenarios. |
-| `web/compra_malaga.json`, `web/felicidad_espana.json` | Datos auxiliares de vivienda y felicidad. |
-| `requirements.txt` | Dependencias de Python. |
-| `SPAIN2035_prueba_aislada_seguimiento.py` | Pruebas del seguimiento y las API en un entorno temporal. |
+| Dashboard | Indicadores, serie municipal y margen mensual por perfil salarial. |
+| Simulador original | Atlas conservado con mapa, código postal, año y consultas de alquiler. |
+| Vivienda y territorio | Evolución, cobertura, distribución, mapa y cambio observado 2023–2024. |
+| Presupuesto y ahorro | Neto orientativo, gastos editables, saldo, objetivo de ahorro y escenarios. |
+| Acceso a la compra | Tasación u oferta municipal, entrada, provisión de gastos, ahorro y cuota. |
+| Economía y bienestar | PIB y WHR de siete países, escenarios de España y contexto local ESMA. |
+| Modelo y evaluación | Comparación de métodos, MAE, RMSE, R², residuos y brechas de rendimiento. |
+| El proyecto · Exposición | Pregunta, autoría, organización, fuentes y proceso completo hasta la app. |
 
-La aplicación también incluye la panorámica de Málaga y recursos cartográficos dentro de `web/`.
+## Recorrido recomendado para la evaluación
 
-## 4. Datos y consulta territorial
+1. Consultar el **notebook** para examinar el EDA y el razonamiento analítico.
+2. Abrir **Modelo y evaluación** para revisar los errores y las limitaciones.
+3. Explorar **Presupuesto**, **Compra** y **Economía y bienestar** para comprobar
+   cómo se conectan los datos y los supuestos con preguntas de uso.
+4. Leer **El proyecto · Exposición** y la [memoria técnica](DOCUMENTACION_MULTIPAGINA.md)
+   para entender las decisiones y la arquitectura del trabajo.
 
-La aplicación utiliza los **26 distritos postales** del fichero municipal y **436 secciones censales** de la cartografía INE de 2021. Al seleccionar un código postal, el mapa muestra las secciones que se solapan con él. La **sección resaltada** determina la mediana de alquiler que se consulta; el código postal, por sí solo, no representa un único precio.
+La profundidad del proyecto se documenta mediante cálculos reproducibles,
+comparaciones y decisiones justificadas; el número de páginas no sustituye la
+evaluación del modelo ni acredita por sí solo una rúbrica académica.
 
-El cruce entre polígonos se realiza por superficie: se conserva una asociación cuando la intersección representa al menos un **1 %** de alguna de las dos geometrías, o cuando es el solapamiento principal de la sección. Es un criterio geográfico orientativo. Una sección puede asociarse a varios códigos postales. Las zonas sin datos suficientes no reciben una predicción inventada.
+## Datos y modelo principal
 
-**Fuente cartográfica:** Ayuntamiento de Málaga, [Sistema de Información Cartográfica — Distrito Postal](https://datosabiertos.malaga.eu/dataset/sistema-de-informacion-cartografica-distrito-postal). El ZIP de datos incluye referencias adicionales en `Datos_Malaga/LEEME.md`.
+- Panel de **6.104 registros sección–año**, **436 secciones** y **5.182 medianas
+  publicadas**; se documentan **922 ausencias de mediana**.
+- Objetivo: **alquiler mediano mensual declarado por sección censal**, en euros.
+- Entradas del ensemble: alquiler anterior, cambio previo de la sección y cambio
+  previo del municipio. El modelo aprende el cambio respecto al alquiler anterior.
+- Ajuste hasta 2022 y búsqueda de hiperparámetros con cinco cortes temporales
+  de 2018 a 2022. Evaluación retrospectiva sobre **786 filas de 2023–2024**.
+- Se comparan una referencia de persistencia, tres regresiones lineales y el
+  Gradient Boosting que conserva el simulador.
 
-## 5. Modelo de regresión y validación
+| Método | MAE · €/mes | RMSE · €/mes | R² |
+|---|---:|---:|---:|
+| Repetir el último alquiler | 47,67 | 59,69 | 0,8601 |
+| Lineal · alquiler previo | 31,65 | 44,25 | 0,9231 |
+| Lineal · tendencia local | 31,85 | 44,27 | 0,9231 |
+| Lineal · tendencia local y municipal | **27,12** | **39,90** | **0,9375** |
+| Gradient Boosting del simulador | 30,52 | 43,90 | 0,9244 |
 
-### Variable objetivo y características
+La lineal con tendencia local y municipal obtiene menor MAE en esta evaluación.
+La ampliación hace visible esa comparación y mantiene el ensemble del atlas.
+Estos resultados proceden de los datos y versiones probados al preparar la
+ampliación; la página de evaluación los recalcula al ejecutarse.
 
-El modelo estima el **alquiler mediano mensual declarado de la sección**. Las tres variables de entrada son:
+## Ejecución en VS Code
 
-- `anterior`: alquiler mediano del año anterior.
-- `cambio_seccion`: cambio de la mediana en esa sección entre los dos años previos.
-- `cambio_ciudad`: variación de la mediana municipal en el mismo periodo.
+Desde la carpeta del repositorio, con Python 3.11 o posterior:
 
-El estimador aprende el **cambio en euros respecto al año anterior**, que después se suma a `anterior` para obtener el alquiler estimado.
+```powershell
+python -m pip install -r requirements.txt
+python -m streamlit run app_streamlit.py
+```
 
-### Entrenamiento
+Abrir la dirección local indicada por Streamlit. El callejero del simulador usa
+teselas de OpenStreetMap y requiere Internet. Las bases de datos se distribuyen
+en `datos/Atlas_Malaga_datos.zip`, que debe mantenerse comprimido.
 
-Se usa `GradientBoostingRegressor` con pérdida **Huber** y búsqueda de hiperparámetros mediante `GridSearchCV`. La selección se realiza con **cinco cortes temporales (2018–2022)**, evitando entrenar cada corte con información posterior al año de prueba. La configuración seleccionada fue `n_estimators=40`, `max_depth=2`, `min_samples_leaf=15` y `random_state=42`.
+## Archivos principales y conservación del trabajo
 
-- **Entrenamiento:** observaciones hasta 2022.
-- **Validación reservada:** 2023–2024 (**786 observaciones**).
-- **Métrica principal de selección:** error absoluto medio (**MAE**, en euros/mes).
+| Archivo | Función |
+|---|---|
+| `app_streamlit.py` | Entrada y navegación de las ocho páginas. |
+| `analisis.py` | Datos, validación temporal, modelos y cálculos de escenarios. |
+| `vistas.py` | Interfaz, gráficas, explicaciones e inventario de fuentes. |
+| `simulador_original.py` | Implementación del atlas reutilizada por la multipágina. |
+| `app_streamlit_antes_multipagina.py` | Copia del archivo de entrada local anterior a la integración. |
+| `autor.json` | Datos editables de autoría y organización. |
+| `datos/Atlas_Malaga_datos.zip` | Bases originales y documentación de procedencia. |
+| `recursos/panorama.jpg` | Recurso visual de Málaga. |
+| `SPAIN_2035_Malaga.ipynb` | Análisis exploratorio, experimentos y conclusiones. |
+| `requirements.txt` | Dependencias de ejecución y análisis. |
 
-### Resultados del Gradient Boosting
+El notebook y los archivos previos no se eliminaron al integrar la ampliación.
+Además de la copia del simulador, se creó un respaldo completo fuera del
+repositorio antes de incorporar los cambios.
 
-| Métrica | Entrenamiento | Validación 2023–2024 |
-|---|---:|---:|
-| MAE | 21,38 € | 30,52 € |
-| RMSE | 29,84 € | 43,90 € |
-| R² | 0,947 | 0,924 |
+## Límites que deben tenerse presentes
 
-El MAE de **28,03 €** comunicado por `GridSearchCV` corresponde a los **cortes internos de selección temporal**: no debe confundirse con el MAE de **30,52 €** medido en 2023–2024.
+- La evaluación 2023–2024 es retrospectiva: esos años se inspeccionaron durante
+  el desarrollo. Una evaluación definitiva requiere un periodo posterior independiente.
+- Una brecha relativa de R² inferior al 5 % no implica que la brecha de MAE también
+  cumpla ese umbral. No se afirma ausencia universal de sobreajuste.
+- Los valores posteriores a 2025 del alquiler de sección son escenarios del 2 %
+  anual desde 2024. No están validados como previsión de mercado hasta 2035.
+- Los resúmenes de CP son medianas sin ponderar de medianas de sus secciones
+  asociadas. No son precios postales oficiales ni estiman oferta disponible.
+- Salarios, neto orientativo y gastos parten de referencias de 2024. La compra usa
+  referencias municipales; no hay precios de venta verificados para cada CP.
+- PIB, evaluación general de vida y satisfacción con vivir en Málaga son indicadores
+  distintos. Sus relaciones descriptivas no prueban causalidad individual.
+- No se ha implementado registro persistente ni reentrenamiento automático en
+  la aplicación multipágina.
 
-**Comparaciones:** repetir el alquiler del año anterior obtuvo un MAE de **47,67 €** en validación; Gradient Boosting redujo ese error en aproximadamente **36 %**. El notebook también muestra una **regresión lineal** con MAE de **27,12 €**: por tanto, no se afirma que el ensemble sea el mejor de *todos* los modelos comparados. Los resultados deben interpretarse atendiendo a las mismas particiones y variables de cada evaluación.
+## Fuentes y trazabilidad
 
-### Comprobación del umbral del 5 %
+SERPAVI y estadísticas de tasación del Ministerio de Vivienda; INE; Ayuntamiento
+de Málaga; IndesIA/TalentHackers; Eurostat; BCE; Banco Mundial; World Happiness
+Report; Universidad de Málaga/ESMA; referencias municipales de oferta de Idealista.
 
-| Criterio de brecha entrenamiento–validación | Resultado |
-|---|---:|
-| Diferencia relativa de R² | **2,39 %** |
-| Diferencia relativa de MAE | **42,78 %** |
+El inventario de la página **El proyecto · Exposición** distingue las bases usadas
+en cálculos, las fuentes contextuales y la documentación conservada. Incluye
+enlaces de procedencia y descargas. Renta INE, indicadores SIMA y paro se conservan
+como contexto y no se atribuyen como entradas del modelo de alquiler.
 
-La diferencia relativa del R² es inferior al 5 %, pero la diferencia de MAE **no lo es**. Como el requisito académico disponible **no identifica una fórmula ni una métrica única**, no se afirma que el modelo esté libre de sobreajuste de manera universal. La variación temporal del mercado también puede influir en la brecha. Las métricas y las fórmulas quedan documentadas en el notebook para su revisión.
-
-## 6. Aplicación «Mediterráneo de Cristal»
-
-La aplicación ofrece una panorámica de Málaga, controles de **código postal y año**, un mapa interactivo y tarjetas con tres tipos de información:
-
-1. **Alquiler por sección:** predicción de la mediana general de alquiler con Gradient Boosting para los años cubiertos por el modelo. **No está filtrada por número de dormitorios.**
-2. **Vivienda tipo de dos habitaciones:** precios orientativos de alquiler y compra calculados para una superficie de referencia de **75 m²** a partir de precios de oferta por m² de **Málaga capital**. **No son precios específicos del código postal ni una muestra filtrada exclusivamente por dos dormitorios.**
-3. **Felicidad de España:** valor publicado para los años disponibles (por ejemplo, **6,540/10 en 2025**) y extrapolación mediante regresión lineal para años posteriores. Los datos del *World Happiness Report* reflejan evaluaciones basadas en ventanas de varios años; las extrapolaciones no son certezas.
-
-Para **2026–2035**, el alquiler por sección utiliza una tasa anual constante respecto a una mediana base de 2024 (**2 %** en la configuración de la aplicación). Las referencias municipales de dos habitaciones utilizan escenarios de crecimiento anual constante (**5,4 % para alquiler y 3,4 % para compra**, desde la referencia de 2026). Son **supuestos ilustrativos**, no resultados de una validación predictiva hasta 2035.
-
-Las referencias municipales de vivienda proceden de los históricos de precios de oferta de [Idealista (venta)](https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/venta/andalucia/malaga-provincia/malaga/) y [Idealista (alquiler)](https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/andalucia/malaga-provincia/malaga/). Los datos de felicidad se atribuyen al [World Happiness Report](https://worldhappiness.report/).
-
-## 7. Seguimiento, observaciones y actualización futura
-
-`app_malaga.py` prepara una base local `observaciones.sqlite3`, consulta el seguimiento a través de `/api/seguimiento`, admite el registro de nuevas medianas por la API y permite exportar los registros mediante `/api/datos.csv`.
-
-Se realizaron **cuatro pruebas funcionales satisfactorias** en un entorno temporal y aislado: predicción, estado del seguimiento, inserción de observaciones y exportación/seguimiento. **La base real no fue alterada** y, durante la auditoría, contenía **0 observaciones nuevas**; por eso la respuesta inicial del seguimiento era `{"n":0,"mae":null}`.
-
-El formulario técnico se retiró de la **interfaz visible** para simplificar la experiencia de usuario. El registro se mantiene como funcionalidad de la API. **El reentrenamiento automático a partir de nuevas observaciones todavía no está implementado.** Para incorporarlas en el futuro habrá que verificar fuentes y comparabilidad, integrar los datos históricos, repetir la validación temporal y reservar un periodo posterior independiente.
-
-## 8. Alcance, limitaciones y reproducibilidad
-
-- El modelo predice alquileres medianos **de secciones**, no anuncios de pisos individuales ni presupuestos personalizados de dos habitaciones.
-- La compra y el alquiler del piso tipo son **referencias municipales de oferta**, no tasaciones, precios de cierre ni cifras desglosadas por código postal.
-- El PIB y la felicidad aportan **contexto analítico**; no prueban por sí solos una relación causal con los alquileres de Málaga.
-- Las cifras de 2030 y 2035 son **escenarios/extrapolaciones**; el rendimiento validado del modelo de alquiler corresponde a la predicción a un año en el periodo evaluado.
-- La selección de configuraciones se ha estudiado también sobre la validación 2023–2024 durante el desarrollo. Una evaluación definitiva de generalización requeriría un periodo posterior completamente independiente.
-
-El paquete de entrega fue sometido a una comprobación de integridad del ZIP y sintaxis Python; además, se probó la **ejecución de la aplicación desde una carpeta descomprimida independiente**. Estas pruebas no sustituyen la aclaración pendiente del umbral académico del 5 %.
-
-## 9. Referencias
-
-- [Rúbrica y enunciado del proyecto de regresión de Factoría F5](https://github.com/Factoria-F5-madrid/ai-project-Regression).
-- Datos originales y documentación: `Datos_Malaga/LEEME.md`, dentro de `Atlas_Malaga_datos.zip`.
-- [Datos Abiertos del Ayuntamiento de Málaga — Distrito Postal](https://datosabiertos.malaga.eu/dataset/sistema-de-informacion-cartografica-distrito-postal).
-- [World Happiness Report](https://worldhappiness.report/).
-- [Idealista — informes de precios de vivienda](https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/).
-- [OpenStreetMap — derechos y atribución](https://www.openstreetmap.org/copyright).
-
----
-
-**Conclusión:** SPAIN 2035 permite explorar la asequibilidad residencial en Málaga con datos, una regresión evaluada temporalmente, escenarios transparentes y una interfaz interactiva. Su principal valor es distinguir lo que el modelo ha demostrado de lo que aún constituye una hipótesis sobre el futuro.
+**La memoria técnica amplía estas decisiones:** [DOCUMENTACION_MULTIPAGINA.md](DOCUMENTACION_MULTIPAGINA.md).
